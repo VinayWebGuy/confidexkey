@@ -1,0 +1,231 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Oswald;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #0593a9;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    color: #fff;
+}
+a {
+    text-decoration: none;
+}
+main {
+    position: relative;
+}
+#icons {
+    position: fixed;
+    top: 2%;
+    right: 2%;
+    display: flex;
+    gap: 20px;
+}
+#icons i {
+    background-color: #fff;
+    width: 40px;
+    height: 40px;
+    color: #0593a9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 700;
+    box-shadow: 2px 0 7px rgba(0, 0, 0, .7);
+    border-radius: 7px;
+}
+.logo-text {
+    font-size: 3.3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300px;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+}
+.box {
+    width: 500px;
+    min-height: 70px;
+    background-color: #fff;
+    padding: 15px 30px;
+    color: #0593a9;
+    border-radius: 7px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    box-shadow: 2px 3px 7px rgba(0, 0, 0, .7);
+    transition: transform .2s;
+}
+.close-icon {
+    cursor: pointer;
+    position: absolute;
+    color: #f00;
+    right: 2%;
+    font-size: 1.2rem;
+}
+textarea {
+    width: 100%;
+    height: 150px;
+    resize: none;
+    outline: none;
+    padding: 7px;
+    border: 1px solid #0593a9 !important;
+}
+button {
+    margin-top: 7px;
+    background: #0593a9;
+    color: #fff;
+    border: none;
+    outline: none;
+    padding: 6px 8px;
+    font-size: 1.1rem;
+    transition: opacity .3s;
+    cursor: pointer;
+}
+button:hover {
+    opacity: .9;
+}
+h2 {
+    margin-bottom: 7px;
+}
+input {
+    width: 100%;
+    margin: 8px 0;
+    outline: none;
+    font-size: 1.1rem;
+    padding: 7px;
+    border: 1px solid #0593a9;
+}
+.searching {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff70;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    inset: 0;
+    z-index: 9;
+    display: none;
+}
+.searching .loader {
+    width: 100px;
+    height: 100px;
+    border: 5px solid #0593a9;
+    border-radius: 50%;
+    border-right: 5px solid transparent;
+}
+.loader.load {
+    animation: load 1s ease-in-out 0s infinite;
+}
+@keyframes load {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+.on {
+    transform: translate(-50%, -50%) scale(1);
+    transition: transform .6s;
+}
+.searching.on {
+    display: flex;
+    translate: (-50%, -50%);
+}
+.logo-text.on {
+    transition: transform .1s;
+}
+.successInput {
+    position: relative;
+    border: 1px solid #0593a9;
+    margin: 20px 0;
+}
+.successInput input {
+    border: none;
+    outline: none;
+    padding: 12px 7px 7px 7px;
+}
+.successInput i {
+    position: absolute;
+    top: 40%;
+    right: 2%;
+}
+.successInput label {
+    position: absolute;
+    padding: 2px 7px;
+    background: #0593a9;
+    color: #fff;
+    top: -20%;
+    left: 2%;
+}
+.copied {
+    position: absolute;
+    top: 0%;
+    right: 2%;
+    color: #a2a2a2;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s;
+    cursor: pointer;
+}
+.copied.active {
+    opacity: 1;
+}
+.share-block {
+    display: flex;
+    margin-top: 10px;
+    justify-content: space-between;
+}
+.share-data, .copy-result, .download-file {
+    background-color: #0593a9;
+    color: #fff;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    user-select: none;
+}
+.share-data i, .copy-result i, .download-file i {
+    margin-left: 5px;
+}
+.download-file {
+    display: none;
+    margin-top: 12px;
+}
+.download-file.have {
+    display: inline-block;
+}
+#hiddenTextArea, #hiddenTextArea2 {
+    position: absolute;
+    opacity: 0;
+}
+.share-copied {
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: #a2a2a2;
+}
+.share-copied.active {
+    opacity: 1;
+}
+.error-message {
+    margin-top: -5px;
+    color: #f00;
+}
+@media screen and (max-width: 768px) {
+    .box {
+        width: 350px;
+    }
+}
+
+
+ 
