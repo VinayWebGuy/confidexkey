@@ -30,17 +30,21 @@ function showSuccess() {
 }
 function showResult(txt, file) {
     $('#result').addClass('on');
-    var formattedText = '<pre>' + txt + '</pre>';
+    var formattedText = '<pre>' + escapeHTML(txt) + '</pre>';
     $('.result-msg').html(formattedText);
-    console.log(file)
-    if(file != "") {
+    console.log(file);
+    if (file != "") {
         $('.download-file').addClass('have');
-        $('.download-file').attr('href', 'files/'+file);
-    }
-    else {
+        $('.download-file').attr('href', 'files/' + file);
+    } else {
         $('.download-file').removeClass('have');
     }
 }
+
+function escapeHTML(html) {
+    return html.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
 
 
 function showSuccess(val1, val2) {
@@ -179,7 +183,7 @@ function shareAction(val1, val2) {
         const key = val1
         const pin = val2
 
-        const textToCopy = `Key: ${key}\nPin: ${pin}`;
+        const textToCopy = `Welcome to ConfidexKey\n\nKey: ${key}\nPin: ${pin}`;
 
         const hiddenTextArea = $('#hiddenTextArea');
         hiddenTextArea.val(textToCopy);

@@ -1,5 +1,5 @@
 <?php
 
-$conn = mysqli_connect("localhost","root", "", "secretData");
+$conn = mysqli_connect("localhost","root", "", "confidexkey");
 
 ?>

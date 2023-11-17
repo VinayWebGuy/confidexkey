@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2023 at 11:48 AM
+-- Generation Time: Nov 17, 2023 at 12:38 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `secretdata`
+-- Database: `confidexkey`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,10 @@ CREATE TABLE `data` (
 --
 
 INSERT INTO `data` (`id`, `ip`, `status`, `unique_key`, `pin`, `msg`, `file`, `created_at`) VALUES
-(1, '2401:4900:1c6f:47ad:75d3:996b:7c8c:3f49', 1, 'YBj4pmG38t', 'vinay0000', 'Hello, Welcome to Secret Data. Created by Vinay Munjal.', NULL, '2023-11-17 10:36:45');
+(1, '2401:4900:1c6f:47ad:75d3:996b:7c8c:3f49', 1, 'YBj4pmG38t', 'vinay0000', 'Hello, Welcome to Secret Data. Created by Vinay Munjal.', NULL, '2023-11-17 10:36:45'),
+(2, '2401:4900:1c6f:479e:cc1a:c0bd:a7bf:31ce', 1, 'M10zNJuDbl', '25810', 'Aufers@7777\r\nEducasia', NULL, '2023-11-17 11:59:29'),
+(3, '2401:4900:1c6f:479e:cc1a:c0bd:a7bf:31ce', 1, 'lszk0uC26A', 'f2f2se3', '<?php\r\n      $conn = mysqli_connect(\"localhost\",\"root\", \"\", \"secretData\");\r\n?>', NULL, '2023-11-17 12:03:03'),
+(4, '2401:4900:1c6f:479e:cc1a:c0bd:a7bf:31ce', 1, '0ydhMWF87C', 'vinay_por01/17-11/16:53', 'Portrait Image', '27334_vinay.jpg', '2023-11-17 12:23:46');
 
 --
 -- Indexes for dumped tables
@@ -63,7 +66,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

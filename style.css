@@ -160,6 +160,7 @@ input {
     position: absolute;
     top: 40%;
     right: 2%;
+    cursor: pointer;
 }
 .successInput label {
     position: absolute;
@@ -177,7 +178,6 @@ input {
     z-index: 2;
     opacity: 0;
     transition: opacity 0.3s;
-    cursor: pointer;
 }
 .copied.active {
     opacity: 1;

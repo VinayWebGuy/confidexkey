@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Secret Data</title>
+    <title>ConfidexKey</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
@@ -21,15 +21,15 @@
             <i id="search-icon" class="fa fa-search"></i>
             <i id="add-icon" class="fa fa-plus"></i>
         </div>
-        <div class="on logo-text" id="logo">Secret Data</div>
+        <div class="on logo-text" id="logo">ConfidexKey</div>
         <div class="box" id="add-form">
             <i class="fa fa-times close-icon"></i>
             <h2>Add Data</h2>
             <form id="send-data" method="post">
                 <textarea name="msg" placeholder="Message"></textarea>
                 <p class="error-message"></p>
-                <input type="file" name="file" id="file">
-                <input class="pin" name="pin" type="text" placeholder="Pin">
+                <input autocomplete="off" type="file" name="file" id="file">
+                <input autocomplete="off" class="pin" name="pin" type="text" placeholder="Pin">
                 <p class="error-message"></p>
                 <button>Add</button>
             </form>
@@ -48,9 +48,9 @@
             <i class="fa fa-times close-icon"></i>
             <h2>Search Data</h2>
             <form method="post" id="search-form">
-                <input class="key" name="key" type="text" placeholder="Key">
+                <input autocomplete="off" class="key" name="key" type="text" placeholder="Key">
                 <p class="error-message"></p>
-                <input class="pin" name="pin" type="text" placeholder="Pin">
+                <input autocomplete="off" class="pin" name="pin" type="text" placeholder="Pin">
                 <p class="error-message"></p>
                 <button>Search</button>
             </form>
