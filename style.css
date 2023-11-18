@@ -16,6 +16,18 @@ body {
     position: relative;
     color: #fff;
 }
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+  
+::-webkit-scrollbar-track {
+    background: #dadada;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
 a {
     text-decoration: none;
 }
@@ -54,6 +66,9 @@ main {
 .box {
     width: 500px;
     min-height: 70px;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden;
     background-color: #fff;
     padding: 15px 30px;
     color: #0593a9;
@@ -67,9 +82,10 @@ main {
 }
 .close-icon {
     cursor: pointer;
-    position: absolute;
+    position: sticky;
     color: #f00;
-    right: 2%;
+    top: 0%;
+    left: 99.5%;
     font-size: 1.2rem;
 }
 textarea {
@@ -78,6 +94,7 @@ textarea {
     resize: none;
     outline: none;
     padding: 7px;
+    font-size: 1.1rem;
     border: 1px solid #0593a9 !important;
 }
 button {
@@ -208,6 +225,7 @@ input {
 #hiddenTextArea, #hiddenTextArea2 {
     position: absolute;
     opacity: 0;
+    height: 0;
 }
 .share-copied {
     opacity: 0;
@@ -221,6 +239,12 @@ input {
     margin-top: -5px;
     color: #f00;
 }
+.result-msg pre {
+    max-width: 100%;
+    overflow-x: auto;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
 @media screen and (max-width: 768px) {
     .box {
         width: 350px;
@@ -228,4 +252,3 @@ input {
 }
 
 
- 

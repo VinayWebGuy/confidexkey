@@ -12,7 +12,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body>
+<body oncontextmenu="return false;">
     <main>
         <div class="searching">
             <div class="loader"></div>
