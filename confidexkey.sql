@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 17, 2023 at 12:38 PM
+-- Generation Time: Nov 20, 2023 at 01:21 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 8.1.1
 
@@ -35,6 +35,8 @@ CREATE TABLE `data` (
   `pin` varchar(255) NOT NULL,
   `msg` text NOT NULL,
   `file` varchar(255) DEFAULT NULL,
+  `auto_expiry` tinyint(4) NOT NULL DEFAULT 0,
+  `expiry_date` datetime DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -42,11 +44,9 @@ CREATE TABLE `data` (
 -- Dumping data for table `data`
 --
 
-INSERT INTO `data` (`id`, `ip`, `status`, `unique_key`, `pin`, `msg`, `file`, `created_at`) VALUES
-(1, '2401:4900:1c6f:47ad:75d3:996b:7c8c:3f49', 1, 'YBj4pmG38t', 'vinay0000', 'Hello, Welcome to Secret Data. Created by Vinay Munjal.', NULL, '2023-11-17 10:36:45'),
-(2, '2401:4900:1c6f:479e:cc1a:c0bd:a7bf:31ce', 1, 'M10zNJuDbl', '25810', 'Aufers@7777\r\nEducasia', NULL, '2023-11-17 11:59:29'),
-(3, '2401:4900:1c6f:479e:cc1a:c0bd:a7bf:31ce', 1, 'lszk0uC26A', 'f2f2se3', '<?php\r\n      $conn = mysqli_connect(\"localhost\",\"root\", \"\", \"secretData\");\r\n?>', NULL, '2023-11-17 12:03:03'),
-(4, '2401:4900:1c6f:479e:cc1a:c0bd:a7bf:31ce', 1, '0ydhMWF87C', 'vinay_por01/17-11/16:53', 'Portrait Image', '27334_vinay.jpg', '2023-11-17 12:23:46');
+INSERT INTO `data` (`id`, `ip`, `status`, `unique_key`, `pin`, `msg`, `file`, `auto_expiry`, `expiry_date`, `created_at`) VALUES
+(1, '2401:4900:1c70:57c7:e051:f677:f81d:ae9', 1, 'SRN3FjPE5y', '18603', 'Secret Key: 023352fsfr875s35\r\nSecret Pin: f21200-2023', NULL, 1, '2023-11-28 17:03:51', '2023-11-20 17:03:52'),
+(2, '2401:4900:1c70:57c7:e051:f677:f81d:ae9', 1, 'L46JfMO21d', '03/11/23', 'Amit Visa', '38261_AMIT VISA.pdf', 1, '2023-11-21 17:06:30', '2023-11-20 17:06:50');
 
 --
 -- Indexes for dumped tables
@@ -66,7 +66,7 @@ ALTER TABLE `data`
 -- AUTO_INCREMENT for table `data`
 --
 ALTER TABLE `data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

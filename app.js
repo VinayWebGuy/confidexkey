@@ -1,13 +1,23 @@
 $('#add-icon').click(function () {
     initial();
     $('#add-form').addClass('on');
-    $('textarea').focus();
+    $('.msgArea').focus();
     final();
 });
 $('#search-icon').click(function () {
     initial();
     $('#search-block').addClass('on');
     $('.key').focus();
+    final();
+});
+$('#theme-icon').click(function () {
+    initial();
+    $('#theme').addClass('on');
+    final();
+});
+$('#info-icon').click(function () {
+    initial();
+    $('#info').addClass('on');
     final();
 });
 
@@ -63,10 +73,10 @@ function hideLoader() {
 $(document).ready(function () {
     $('#send-data').submit(function (e) {
         e.preventDefault();
-    
+
         // Check if textarea and pin fields are filled
         var formValid = true;
-        $(this).find('textarea, input[name="pin"]').each(function() {
+        $(this).find('textarea, input[name="pin"]').each(function () {
             if ($(this).val() === '') {
                 formValid = false;
                 $(this).next('.error-message').html('Please fill in this field.'); // Add an error message
@@ -74,17 +84,17 @@ $(document).ready(function () {
                 $(this).next('.error-message').html(''); // Clear error message if the field is filled
             }
         });
-    
+
         if (!formValid) {
             // Display an error or return
             console.log('Please fill in all required fields.');
             return;
         }
-    
+
         processLoader();
-    
+
         var formData = new FormData(this);
-    
+
         $.ajax({
             url: 'add',
             type: 'POST',
@@ -105,7 +115,7 @@ $(document).ready(function () {
             }
         });
     });
-    
+
 
     $('.copy-icon').on('click', function () {
         var targetId = $(this).data('target');
@@ -132,9 +142,8 @@ $(document).ready(function () {
     $('#search-form').submit(function (e) {
         e.preventDefault();
 
-        // Check if textarea and pin fields are filled
         var formValid = true;
-        $(this).find('input').each(function() {
+        $(this).find('input').each(function () {
             if ($(this).val().trim() === '') {
                 formValid = false;
                 $(this).next('.error-message').html('Please fill in this field.'); // Add an error message
@@ -161,12 +170,19 @@ $(document).ready(function () {
             contentType: false,
             processData: false,
             success: function (response) {
-                $('#search-form')[0].reset();
-                const res = response.split("|");
-                hideLoader();
-                initial();
-                showResult(res[0], res[1]);
-                copyResult(res[0])
+                if(response != "") {
+                    $('#search-form')[0].reset();
+                    const res = response.split("|");
+                    hideLoader();
+                    initial();
+                    showResult(res[0], res[1]);
+                    copyResult(res[0])
+                }
+                else {
+                    hideLoader();
+                    $('.second-error').html('Invalid Details');
+                }
+                console.log(response)
             },
             error: function (xhr, status, error) {
                 hideLoader();
@@ -232,3 +248,41 @@ function resetJS() {
         }
     });
 }
+
+
+$('#expiry').on('change', function () {
+    if ($(this).is(':checked')) {
+        $('.expiry-date').addClass('show');
+    } else {
+        $('.expiry-date').removeClass('show');
+        $('.expiry-date').val('')
+    }
+})
+
+
+// Function to handle click event on theme colors
+$('.theme-color').click(function() {
+    $('.theme-color').removeClass('active');
+    $(this).addClass('active');
+
+    // Get the value of --i CSS property for the clicked element
+    var selectedColor = $(this).css('--i');
+
+    // Set the --clr variable to the selected color
+    document.documentElement.style.setProperty('--clr', selectedColor);
+
+    // Store the selected color in localStorage
+    localStorage.setItem('selectedColor', selectedColor);
+});
+
+// Retrieve and apply the selected color from localStorage on page load
+$(document).ready(function() {
+    var storedColor = localStorage.getItem('selectedColor');
+    if (storedColor !== null) {
+        document.documentElement.style.setProperty('--clr', storedColor);
+        $('.theme-color').removeClass('active');
+        $('.theme-color').filter(function() {
+            return $(this).css('--i') === storedColor;
+        }).addClass('active');
+    }
+});
